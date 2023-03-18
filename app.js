@@ -7,6 +7,7 @@ const mongoSanitize = require('express-mongo-sanitize');
 const xss = require('xss-clean');
 const hpp = require('hpp')
 const cookieParser = require('cookie-parser');
+const compression = require('compression');
 
 // Error Handlers
 const AppError = require('./utils/appError');
@@ -77,6 +78,9 @@ app.use(xss());
 app.use(hpp({
   whitelist: ['duration', 'maxGroupSize', 'difficulty', 'ratingsAverage', 'ratingsQuantity', 'price']
 }));
+
+// compress all text and html data send to client
+app.use(compression());
 
 
 // test middleware
