@@ -6,7 +6,9 @@ const displayMap = (locations)=> {
 const map = new mapboxgl.Map({
   container: 'map',
   style: 'mapbox://styles/iabhinavkakran/clf9vwfhl00cq01mrg9cds47m',
-  scrollZoom: false
+  zoom: 10,
+  // Disable auto zoom
+  fitBounds: false
 });
 
 const bounds = new mapboxgl.LngLatBounds();
